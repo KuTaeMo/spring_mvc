@@ -25,6 +25,8 @@ public class RequestBodyJsonServlet extends HttpServlet {
 
         System.out.println("messageBody = " + messageBody);
 
+        // Jackson 라이브러리를 사용해서 messageBody의 json 데이터를 파싱하여 객체에 담는다.
+        // JSON이 아닌 다른 형식의 데이터가 들어오면 파싱 하면서 에러가 난다.
         HelloData helloData = objectMapper.readValue(messageBody, HelloData.class);
 
         System.out.println("helloData.username = " + helloData.getUsername());
